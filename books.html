@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبة الملخصات | وَرَقَة وفِكْرَة</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- شريط تقدم القراءة -->
+    <div id="readingProgress" class="reading-progress"></div>
+
+    <!-- شريط التنقل -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">📚 وَرَقَة وفِكْرَة</a>
+            <nav class="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="books.html" class="active">مكتبة الملخصات</a>
+                <a href="about.html">عن الموقع</a>
+                <button type="button" id="themeToggle" class="theme-btn" onclick="toggleDarkMode()" title="تبديل المظهر">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="container">
+            <h2>مكتبة الملخصات</h2>
+            <p>ابحث، صفِّ حسب التصنيف أو المفضلة، واضغط على أي كتاب لقراءة التفاصيل والدروس</p>
+        </div>
+    </section>
+
+    <main class="container section-space">
+        <!-- شريط البحث والتصفية والمفضلة -->
+        <div class="filter-bar">
+            <input
+                type="text"
+                id="bookSearchInput"
+                class="search-input"
+                placeholder="ابحث باسم الكتاب أو المؤلف أو الفكرة..."
+                oninput="filterBooks()"
+            >
+
+            <select id="categoryFilter" class="category-select" onchange="filterBooks()">
+                <option value="all">كل التصنيفات</option>
+                <option value="تطوير الذات">تطوير الذات</option>
+                <option value="التركيز والإنتاجية">التركيز والإنتاجية</option>
+                <option value="إدارة الوقت">إدارة الوقت</option>
+                <option value="قراءة وفكر">قراءة وفكر</option>
+            </select>
+
+            <button
+                type="button"
+                id="favOnlyBtn"
+                class="fav-filter-btn"
+                onclick="toggleFavOnlyFilter()"
+            >❤️ المفضلة فقط</button>
+        </div>
+        <p id="resultsCounter" class="results-counter"></p>
+        
+        <div id="noResultsMsg" class="no-results" style="display: none;">
+            <p>لا توجد كتب مطابقة لبحثك حالياً.</p>
+            <button type="button" class="btn" style="margin-top: 12px;" onclick="resetAllFilters()">عرض جميع الكتب</button>
+        </div>
+
+        <p id="noResultsMsg" class="no-results" style="display: none;">
+            لا توجد كتب مطابقة لبحثك أو تصفية المفضلة حالياً.
+        </p>
+
+        <!-- شبكة الكتب -->
+        <div class="books-grid">
+            <!-- كتاب 1 -->
+            <article class="book-card clickable" data-book-key="atomic" onclick="openBookModal('atomic')">
+                <div class="book-cover">
+                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80" alt="غلاف كتاب العادات الذرية">
+                    <span class="tag">تطوير الذات</span>
+                </div>
+                <div class="book-body">
+                    <div class="card-top-row">
+                        <h4>العادات الذرية</h4>
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-book-key="atomic"
+                            onclick="toggleFavorite(event, 'atomic')"
+                        >🤍 أضف للمفضلة</button>
+                    </div>
+                    <p class="author">تأليف: جيمس كلير</p>
+                    <p class="summary">
+                        التحسن الصغير بنسبة 1% كل يوم يصنع فرقاً ضخماً على المدى الطويل عندما تبني نظاماً يومياً ثابتاً.
+                    </p>
+                    <div class="takeaway">
+                        <strong>💡 الفكرة التطبيقية:</strong> اربط عادة جديدة بعادة تفعلها يومياً بالفعل.
+                    </div>
+                    <span class="read-more-btn">اقرأ التفاصيل والدروس ←</span>
+                </div>
+            </article>
+
+            <!-- كتاب 2 -->
+            <article class="book-card clickable" data-book-key="deepwork" onclick="openBookModal('deepwork')">
+                <div class="book-cover">
+                    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80" alt="غلاف كتاب العمل العميق">
+                    <span class="tag">التركيز والإنتاجية</span>
+                </div>
+                <div class="book-body">
+                    <div class="card-top-row">
+                        <h4>العمل العميق (Deep Work)</h4>
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-book-key="deepwork"
+                            onclick="toggleFavorite(event, 'deepwork')"
+                        >🤍 أضف للمفضلة</button>
+                    </div>
+                    <p class="author">تأليف: كال نيوبورت</p>
+                    <p class="summary">
+                        القدرة على التركيز الكامل دون تشتت أصبحت مهارة نادرة ومرتفعة القيمة في عصر الإشعارات المستمرة.
+                    </p>
+                    <div class="takeaway">
+                        <strong>💡 الفكرة التطبيقية:</strong> خصص ساعة يومياً بهاتف صامت لإنجاز أهم مهمة.
+                    </div>
+                    <span class="read-more-btn">اقرأ التفاصيل والدروس ←</span>
+                </div>
+            </article>
+
+            <!-- كتاب 3 -->
+            <article class="book-card clickable" data-book-key="timemgmt" onclick="openBookModal('timemgmt')">
+                <div class="book-cover">
+                    <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=800&q=80" alt="مجموعة كتب ثقافية">
+                    <span class="tag">إدارة الوقت</span>
+                </div>
+                <div class="book-body">
+                    <div class="card-top-row">
+                        <h4>إدارة الوقت</h4>
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-book-key="timemgmt"
+                            onclick="toggleFavorite(event, 'timemgmt')"
+                        >🤍 أضف للمفضلة</button>
+                    </div>
+                    <p class="author">تأليف: د. إبراهيم الفقي</p>
+                    <p class="summary">
+                        تنظيم الأولويات والتفرقة بين المهم والعاجل يمنحك راحة بال وإنجازاً حقيقياً دون ضغط عشوائي.
+                    </p>
+                    <div class="takeaway">
+                        <strong>💡 الفكرة التطبيقية:</strong> اكتب أهم 3 مهام لليوم التالي قبل النوم.
+                    </div>
+                    <span class="read-more-btn">اقرأ التفاصيل والدروس ←</span>
+                </div>
+            </article>
+
+            <!-- كتاب 4 -->
+            <article class="book-card clickable" data-book-key="howtoread" onclick="openBookModal('howtoread')">
+                <div class="book-cover">
+                    <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=80" alt="مكتبة كتب">
+                    <span class="tag">قراءة وفكر</span>
+                </div>
+                <div class="book-body">
+                    <div class="card-top-row">
+                        <h4>كيف تقرأ كتاباً</h4>
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-book-key="howtoread"
+                            onclick="toggleFavorite(event, 'howtoread')"
+                        >🤍 أضف للمفضلة</button>
+                    </div>
+                    <p class="author">تأليف: مورتيمر أدلر</p>
+                    <p class="summary">
+                        يعلمك القراءة النشطة: كيف تطرح أسئلة على النص، وتحدد الفكرة الرئيسية، وتلخص بأسلوبك الخاص.
+                    </p>
+                    <div class="takeaway">
+                        <strong>💡 الفكرة التطبيقية:</strong> لخّص كل فصل في 3 جمل بعد الانتهاء منه مباشرة.
+                    </div>
+                    <span class="read-more-btn">اقرأ التفاصيل والدروس ←</span>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- التذييل -->
+    <footer>
+        <div class="container footer-content">
+            <p>© 2026 وَرَقَة وفِكْرَة — محتوى هادف لنشر ثقافة القراءة</p>
+            <div class="footer-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="books.html">الملخصات</a>
+                <a href="about.html">عن الموقع</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- نافذة عرض تفاصيل الكتاب -->
+    <div id="bookModal" class="modal" onclick="closeModalOnOutside(event)">
+        <div class="modal-content">
+            <button type="button" class="close-btn" onclick="closeBookModal()">×</button>
+            <img id="modalCover" src="" alt="غلاف الكتاب" class="modal-img">
+            <span id="modalTag" class="tag modal-tag"></span>
+            <h2 id="modalTitle"></h2>
+            <button type="button" id="modalFavBtn" class="fav-btn modal-fav-btn">🤍 حفظ في المفضلة</button>
+            <p id="modalAuthor" class="author"></p>
+
+            <div class="modal-section">
+                <h4>📖 نظرة أعمق على الكتاب</h4>
+                <p id="modalFullDesc"></p>
+            </div>
+
+            <div class="modal-section">
+                <h4>✨ أهم 3 دروس مستفادة</h4>
+                <ul id="modalPoints" class="modal-list"></ul>
+            </div>
+
+            <div class="modal-quote">
+                <p id="modalQuote"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>

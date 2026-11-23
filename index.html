@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وَرَقَة وفِكْرَة | ملخصات كتب وأفكار ملهمة</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- شريط تقدم القراءة -->
+    <div id="readingProgress" class="reading-progress"></div>
+
+    <!-- شريط التنقل -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">📚 وَرَقَة وفِكْرَة</a>
+            <nav class="nav-links">
+                <a href="index.html" class="active">الرئيسية</a>
+                <a href="books.html">مكتبة الملخصات</a>
+                <a href="about.html">عن الموقع</a>
+                <button type="button" id="themeToggle" class="theme-btn" onclick="toggleDarkMode()" title="تبديل المظهر">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- قسم الترحيب -->
+    <section class="hero">
+        <div class="hero-overlay">
+            <div class="container">
+                <span class="badge">✨ اقرأ بوعي.. وطبق فكرة واحدة كل يوم</span>
+                <h2>خلاصة الكتب المؤثرة في دقائق مركزة</h2>
+                <p>
+                    نقدّم لك ملخصات مركزة وأفكاراً عملية من أبرز الكتب في تطوير الذات، التركيز، إدارة الوقت، ومهارات القراءة لتبدأ خطوة حقيقية في يومك.
+                </p>
+                <div class="hero-actions">
+                    <a href="books.html" class="btn">تصفح مكتبة الملخصات</a>
+                    <a href="#daily-challenge" class="btn btn-outline">تحدي فكرة اليوم</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- شريط التصنيفات -->
+    <section class="categories-bar">
+        <div class="container categories-list">
+            <span class="cat-pill">🌱 تطوير الذات والعادات</span>
+            <span class="cat-pill">🎯 التركيز والإنتاجية</span>
+            <span class="cat-pill">⏳ إدارة الوقت</span>
+            <span class="cat-pill">📖 مهارات القراءة</span>
+        </div>
+    </section>
+
+    <!-- أحدث الملخصات -->
+    <main class="container section-space">
+        <div class="section-header">
+            <h3 class="section-title">أحدث الملخصات</h3>
+            <a href="books.html" class="see-all">عرض الكل ←</a>
+        </div>
+
+        <div class="books-grid">
+            <!-- كتاب 1 -->
+            <article class="book-card clickable" onclick="openBookModal('atomic')">
+                <div class="book-cover">
+                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80" alt="غلاف كتاب العادات الذرية">
+                    <span class="tag">تطوير الذات</span>
+                </div>
+                <div class="book-body">
+                    <div class="card-top-row">
+                        <h4>العادات الذرية</h4>
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-book-key="atomic"
+                            onclick="toggleFavorite(event, 'atomic')"
+                        >🤍 أضف للمفضلة</button>
+                    </div>
+                    <p class="author">تأليف: جيمس كلير</p>
+                    <p class="summary">
+                        التحسن الصغير بنسبة 1% كل يوم يصنع فرقاً ضخماً على المدى الطويل عندما تبني نظاماً يومياً ثابتاً.
+                    </p>
+                    <div class="takeaway">
+                        <strong>💡 الفكرة التطبيقية:</strong> اربط عادة جديدة بعادة تفعلها يومياً بالفعل.
+                    </div>
+                    <span class="read-more-btn">اقرأ التفاصيل والدروس ←</span>
+                </div>
+            </article>
+
+            <!-- كتاب 2 -->
+            <article class="book-card clickable" onclick="openBookModal('deepwork')">
+                <div class="book-cover">
+                    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80" alt="غلاف كتاب العمل العميق">
+                    <span class="tag">التركيز والإنتاجية</span>
+                </div>
+                <div class="book-body">
+                    <div class="card-top-row">
+                        <h4>العمل العميق (Deep Work)</h4>
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-book-key="deepwork"
+                            onclick="toggleFavorite(event, 'deepwork')"
+                        >🤍 أضف للمفضلة</button>
+                    </div>
+                    <p class="author">تأليف: كال نيوبورت</p>
+                    <p class="summary">
+                        القدرة على التركيز الكامل دون تشتت أصبحت مهارة نادرة ومرتفعة القيمة في عصر الإشعارات المستمرة.
+                    </p>
+                    <div class="takeaway">
+                        <strong>💡 الفكرة التطبيقية:</strong> خصص ساعة يومياً بهاتف صامت لإنجاز أهم مهمة.
+                    </div>
+                    <span class="read-more-btn">اقرأ التفاصيل والدروس ←</span>
+                </div>
+            </article>
+
+            <!-- كتاب 3 -->
+            <article class="book-card clickable" onclick="openBookModal('timemgmt')">
+                <div class="book-cover">
+                    <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=800&q=80" alt="مجموعة كتب ثقافية">
+                    <span class="tag">إدارة الوقت</span>
+                </div>
+                <div class="book-body">
+                    <div class="card-top-row">
+                        <h4>إدارة الوقت</h4>
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-book-key="timemgmt"
+                            onclick="toggleFavorite(event, 'timemgmt')"
+                        >🤍 أضف للمفضلة</button>
+                    </div>
+                    <p class="author">تأليف: د. إبراهيم الفقي</p>
+                    <p class="summary">
+                        تنظيم الأولويات والتفرقة بين المهم والعاجل يمنحك راحة بال وإنجازاً حقيقياً دون ضغط عشوائي.
+                    </p>
+                    <div class="takeaway">
+                        <strong>💡 الفكرة التطبيقية:</strong> اكتب أهم 3 مهام لليوم التالي قبل النوم.
+                    </div>
+                    <span class="read-more-btn">اقرأ التفاصيل والدروس ←</span>
+                </div>
+            </article>
+        </div>
+
+        <!-- تحدي فكرة اليوم التفاعلي -->
+        <section id="daily-challenge" class="challenge-box">
+            <div class="challenge-header">
+                <div>
+                    <span class="badge">🎯 تطبيق عملي سريع</span>
+                    <h3>تحدي فكرة اليوم</h3>
+                    <p>اختر فكرة واحدة من الكتب وعلّم عليها بمجرد تطبيقها اليوم.</p>
+                </div>
+                <span id="challengeStatus" class="challenge-status">لم يُنجز بعد</span>
+            </div>
+
+            <div class="challenge-options">
+                <button type="button" class="challenge-chip" onclick="selectChallenge(this, 'قراءة 10 صفحات أو 15 دقيقة بتركيز كامل دون هاتف.')">
+                    قراءة مركزة 15 دقيقة
+                </button>
+                <button type="button" class="challenge-chip" onclick="selectChallenge(this, 'تحديد أهم 3 مهام لليوم والبدء بأولها فوراً.')">
+                    أهم 3 مهام لليوم
+                </button>
+                <button type="button" class="challenge-chip" onclick="selectChallenge(this, 'ربط عادة صغيرة جديدة بعادة يومية ثابتة.')">
+                    ربط عادة صغيرة
+                </button>
+            </div>
+
+            <p id="selectedChallengeText" class="challenge-active-text">
+                التحدي الحالي: قراءة 10 صفحات أو 15 دقيقة بتركيز كامل دون هاتف.
+            </p>
+
+            <button type="button" id="completeChallengeBtn" class="btn" onclick="toggleChallengeDone()">
+                تأكيد إنجاز التحدي اليوم
+            </button>
+        </section>
+    </main>
+
+    <!-- مختارات من الاقتباسات -->
+    <section class="quotes-section">
+        <div class="container">
+            <h3 class="section-title">اقتباسات تستحق التوقف</h3>
+            <div class="quotes-grid">
+                <blockquote class="quote-card">
+                    «العادات هي الفائدة المركبة للتحسن الذاتي؛ 1% أفضل كل يوم تعني 37 ضعفاً بعد عام.»
+                    <span>— جيمس كلير، العادات الذرية</span>
+                </blockquote>
+                <blockquote class="quote-card">
+                    «القدرة على أداء العمل العميق أصبحت نادرة جداً، وفي الوقت نفسه ذات قيمة هائلة.»
+                    <span>— كال نيوبورت، العمل العميق</span>
+                </blockquote>
+                <blockquote class="quote-card">
+                    «الوقت هو الحياة، ومن يضيع وقته فإنه يضيع حياته دون أن يدري.»
+                    <span>— د. إبراهيم الفقي، إدارة الوقت</span>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer>
+        <div class="container footer-content">
+            <p>© 2026 وَرَقَة وفِكْرَة — محتوى هادف لنشر ثقافة القراءة</p>
+            <div class="footer-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="books.html">الملخصات</a>
+                <a href="about.html">عن الموقع</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- نافذة عرض تفاصيل الكتاب -->
+    <div id="bookModal" class="modal" onclick="closeModalOnOutside(event)">
+        <div class="modal-content">
+            <button type="button" class="close-btn" onclick="closeBookModal()">×</button>
+            <img id="modalCover" src="" alt="غلاف الكتاب" class="modal-img">
+            <span id="modalTag" class="tag modal-tag"></span>
+            <h2 id="modalTitle"></h2>
+            <button type="button" id="modalFavBtn" class="fav-btn modal-fav-btn">🤍 حفظ في المفضلة</button>
+            <p id="modalAuthor" class="author"></p>
+
+            <div class="modal-section">
+                <h4>📖 نظرة أعمق على الكتاب</h4>
+                <p id="modalFullDesc"></p>
+            </div>
+
+            <div class="modal-section">
+                <h4>✨ أهم 3 دروس مستفادة</h4>
+                <ul id="modalPoints" class="modal-list"></ul>
+            </div>
+
+            <div class="modal-quote">
+                <p id="modalQuote"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

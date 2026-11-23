@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عن الموقع | وَرَقَة وفِكْرَة</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- شريط تقدم القراءة -->
+    <div id="readingProgress" class="reading-progress"></div>
+
+    <!-- شريط التنقل -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">📚 وَرَقَة وفِكْرَة</a>
+            <nav class="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="books.html">مكتبة الملخصات</a>
+                <a href="about.html" class="active">عن الموقع</a>
+                <button type="button" id="themeToggle" class="theme-btn" onclick="toggleDarkMode()" title="تبديل المظهر">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="container">
+            <h2>عن منصة وَرَقَة وفِكْرَة</h2>
+            <p>نحوّل الكتب الطويلة إلى خلاصة واضحة وأفكار عملية قابلة للتطبيق</p>
+        </div>
+    </section>
+
+    <main class="container section-space">
+        <!-- بطاقات الأرقام والمميزات -->
+        <div class="about-stats-grid">
+            <div class="stat-card">
+                <span class="stat-num">5 دقائق</span>
+                <p>متوسط قراءة الملخص الواحد بتركيز ووضوح</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-num">3 دروس</span>
+                <p>أهم القواعد المستخلصة من كل كتاب دون حشو</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-num">خطوة عملية</span>
+                <p>تطبيق مباشر لكل كتاب تبدأ به يومك فوراً</p>
+            </div>
+        </div>
+
+        <!-- التعريف والرسالة -->
+        <div class="about-page-box">
+            <h3>🎯 لماذا أنشأنا «وَرَقَة وفِكْرَة»؟</h3>
+            <p>
+                كثيرون يريدون القراءة والاستفادة من الكتب المؤثرة، لكن ضيق الوقت أو كثرة المشتتات تجعل البدء صعباً. هدفنا هنا هو تقديم الفكرة الجوهرية للكتاب بلغة عربية سهلة، مع خطوة عملية واحدة تساعدك على تحويل المعرفة إلى عادة يومية.
+            </p>
+
+            <h3>✨ كيف نلخّص الكتب؟</h3>
+            <ul class="about-list">
+                <li><strong>التركيز على الجوهر:</strong> نبتعد عن الإطالة ونستخرج الرسالة الأساسية للكاتب.</li>
+                <li><strong>التطبيق العملي:</strong> كل ملخص ينتهي بفكرة واضحة يمكنك تجربتها في نفس اليوم.</li>
+                <li><strong>القراءة التفاعلية:</strong> إمكانية البحث الفوري، حفظ الكتب في المفضلة، وتجربة تحدي اليوم.</li>
+            </ul>
+        </div>
+
+        <!-- الأسئلة الشائعة التفاعلية -->
+        <div class="about-page-box" style="margin-top: 28px;">
+            <h3>❓ أسئلة شائعة</h3>
+            
+            <div class="faq-item">
+                <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                    <span>هل يغني الملخص عن قراءة الكتاب الكامل؟</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>الملخص يمنحك الخريطة الذهنية وأهم الأفكار التطبيقية بسرعة، ويساعدك على اختيار الكتب التي تستحق أن تقرأها كاملة بتعمق لاحقاً.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                    <span>أين تُحفظ الكتب التي أضيفها للمفضلة؟</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>تُحفظ تلقائياً في ذاكرة متصفحك المحلي (Local Storage) دون الحاجة لتسجيل حساب، وتبقى محفوظة حتى بعد إغلاق المتصفح.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                    <span>كيف أستفيد بأقصى درجة من الموقع؟</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>اقرأ ملخصاً واحداً فقط في اليوم، واختر «الفكرة التطبيقية» الخاصة به ونفذها خلال 24 ساعة قبل الانتقال لكتاب آخر.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- نموذج اقتراح كتاب جديد -->
+        <div class="about-page-box" style="margin-top: 28px;">
+            <h3>📩 اقترح كتاباً نلخصه قريباً</h3>
+            <p style="margin-bottom: 16px;">هل هناك كتاب تتمنى رؤية ملخصه وأهم دروسه في المكتبة؟ اكتب اسمه هنا:</p>
+
+            <form id="suggestBookForm" class="suggest-form" onsubmit="submitBookSuggestion(event)">
+                <input
+                    type="text"
+                    id="suggestedBookName"
+                    class="search-input"
+                    placeholder="اسم الكتاب (مثال: العادات السبع)"
+                    required
+                >
+                <input
+                    type="text"
+                    id="suggestedAuthorName"
+                    class="search-input"
+                    placeholder="اسم المؤلف (اختياري)"
+                >
+                <button type="submit" class="btn">إرسال الاقتراح</button>
+            </form>
+
+            <p id="suggestionFeedback" class="suggestion-feedback" style="display: none;"></p>
+            <ul id="userSuggestionsList" class="suggestions-list"></ul>
+        </div>
+    </main>
+
+    <!-- التذييل -->
+    <footer>
+        <div class="container footer-content">
+            <p>© 2026 وَرَقَة وفِكْرَة — محتوى هادف لنشر ثقافة القراءة</p>
+            <div class="footer-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="books.html">الملخصات</a>
+                <a href="about.html">عن الموقع</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
